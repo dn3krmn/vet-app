@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="header :: header"></div>
+<body>
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div th:replace="header :: sidebar"></div>
+        <div class="row col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header">
+                    <br>
+                    <h2 class="text-center">Edit Pet Owner</h2>
+                </div>
+                <div class="card-body">
+                    <form role="form" method="post" th:action="@{/owners/{ownerId}(ownerId=${owner.ownerId})}" th:object="${owner}">
+                        <div class="mb-3">
+                            <label class="form-label"> Ad </label>
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    id="ownerName"
+                                    placeholder="Ad giriniz"
+                                    name="ownerName"
+                                    th:field="*{ownerName}"
+                            />
+                            <p th:if="${#fields.hasErrors('ownerName')}" class="text-danger" th:errors="*{ownerName}"></p>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label"> Soyad </label>
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    id="ownerSurname"
+                                    placeholder="Soyad giriniz"
+                                    name="ownerSurname"
+                                    th:field="*{ownerSurname}"
+                            />
+                            <p th:if="${#fields.hasErrors('ownerSurname')}" class="text-danger" th:errors="*{ownerSurname}"></p>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label"> Email </label>
+                            <input
+                                    type="email"
+                                    class="form-control"
+                                    id="email"
+                                    placeholder="Email giriniz"
+                                    name="email"
+                                    th:field="*{email}"
+                            />
+                            <p th:if="${#fields.hasErrors('email')}" class="text-danger" th:errors="*{email}"></p>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label"> Telefon </label>
+                            <input
+                                    type="number"
+                                    class="form-control"
+                                    id="phoneNumber"
+                                    placeholder="Telefon numarası giriniz"
+                                    name="phoneNumber"
+                                    th:field="*{phoneNumber}"
+                            />
+                            <p th:if="${#fields.hasErrors('phoneNumber')}" class="text-danger" th:errors="*{phoneNumber}"></p>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label"> Adres </label>
+                            <textarea
+                                    class="form-control"
+                                    id="address"
+                                    placeholder="Adres giriniz"
+                                    rows="3"
+                                    name="address"
+                                    th:field="*{address}"
+                            >
+                            </textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Ekle</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<br><br>
+</body>
+</html>

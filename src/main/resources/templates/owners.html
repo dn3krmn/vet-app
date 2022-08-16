@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="header :: header"></div>
+<body>
+<!--<nav class="navbar navbar-expand-lg navbar-light " style="background-color: #d3fffd;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Vet App</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" th:href="@{/owners}">Owners</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>-->
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div th:replace="header :: sidebar"></div>
+        <div class="container">
+            <br><br>
+            <div class="row">
+                <h1 style="text-align: center; ">Pet Sahipleri</h1>
+            </div>
+            <br><br>
+            <table class="table table-striped table-hover table-bordered">
+                <thead class="table-info">
+                <th style="width: 0.5%">#</th>
+                <th style="width: 3%">Ad</th>
+                <th style="width: 3%">Soyad</th>
+                <th style="width: 3%">Email</th>
+                <th style="width: 3%">Telefon</th>
+                <th style="width: 5%">Adres</th>
+                <th style="width: 5%">Actions</th>
+                </thead>
+                <tbody>
+                <tr th:each="owner, ownerStat : ${owners}">
+                    <td th:text="${ownerStat.count}">1</td>
+                    <td th:text="${owner.ownerName}">owner name</td>
+                    <td th:text="${owner.ownerSurname}">owner surname</td>
+                    <td th:text="${owner.email}">email</td>
+                    <td th:text="${owner.phoneNumber}">tel</td>
+                    <td th:text="${owner.address}">adres</td>
+                    <td>
+                        <a th:href="@{/owners/{ownerId}/edit(ownerId=${owner.ownerId})}" class="btn btn-info"> Düzenle</a>
+                        <a th:href="@{/owners/{ownerId}/delete(ownerId=${owner.ownerId})}" class="btn btn-danger"> Sil</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+    <!--<div class="container">
+        <br><br>
+        <div class="row">
+            <h1 style="text-align: center; ">Pet Sahipleri</h1>
+        </div>
+        <br><br>
+        <table class="table table-striped table-hover table-bordered">
+            <thead class="table-info">
+                <th style="width: 5%">#</th>
+                <th style="width: 15%">Ad</th>
+                <th style="width: 15%">Soyad</th>
+                <th style="width: 15%">Email</th>
+                <th style="width: 15%">Telefon</th>
+                <th style="width: 20%">Adres</th>
+                <th style="width: 15%">Actions</th>
+            </thead>
+            <tbody>
+                <tr th:each="owner, ownerStat : ${owners}">
+                    <td th:text="${ownerStat.count}">1</td>
+                    <td th:text="${owner.ownerName}">owner name</td>
+                    <td th:text="${owner.ownerSurname}">owner surname</td>
+                    <td th:text="${owner.email}">email</td>
+                    <td th:text="${owner.phoneNumber}">tel</td>
+                    <td th:text="${owner.address}">adres</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>-->
+<div th:replace="footer :: footer"></div>
+</body>
+</html>

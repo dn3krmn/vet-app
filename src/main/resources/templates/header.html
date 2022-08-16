@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="header">
+    <meta charset="UTF-8">
+    <title>VET APP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+</head>
+<body>
+<div class="col-auto col-md-3 col-xl-1 px-sm-4 px-0 bg-dark"th:fragment="sidebar">
+    <div class="d-flex flex-column align-items-center align-items-sm-start px-0 pt-2 text-white min-vh-100">
+        <a href="#" class="d-flex align-items-center pb-3 mb-md-2 me-md-auto text-white text-decoration-none">
+            <span class="fs-5 d-none d-sm-inline">Menu</span>
+        </a>
+        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+            <li class="nav-item">
+                <a th:href="@{/owners}" class="nav-link align-middle px-0" style="color: #9ccfd5">
+                    <i class="bi bi-people-fill"></i> <span class="ms-1 d-none d-sm-inline">Pet Sahipleri</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a th:href="@{/owners/addowner}" class="nav-link align-middle px-0" style="color: #9ccfd5">
+                    <i class="bi bi-person-plus-fill"></i> <span class="ms-1 d-none d-sm-inline">Pet Sahibi Ekle</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
