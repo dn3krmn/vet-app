@@ -50,4 +50,11 @@ public class OwnerServiceImpl implements OwnerService {
     public void deleteOwner(int ownerId) {
         ownerRepository.deleteById(ownerId);
     }
+
+    @Override
+    public List<OwnerDto> searchOwners(String query) {
+        List<Owner> owners = ownerRepository.searchOwners(query);
+        return owners.stream().map(OwnerMapper::mapToOwnerDto)
+                .collect(Collectors.toList());
+    }
 }

@@ -16,4 +16,6 @@ public interface OwnerService {
     void updateOwner(OwnerDto ownerDto);
 
     void deleteOwner(int ownerId);
+
+    List<OwnerDto> searchOwners(String query);
 }

@@ -6,10 +6,7 @@ import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -78,5 +75,15 @@ public class OwnerController {
     public String deleteOwner(@PathVariable("ownerId") int ownerId){
         ownerService.deleteOwner(ownerId);
         return "redirect:/owners";
+    }
+
+    //handler method to handle search owner request
+    //localhost:8080/owners/search?query=name
+    @GetMapping("/owners/search")
+    public String searchOwners(@RequestParam(value = "query") String query,
+                               Model model){
+        List<OwnerDto> owners = ownerService.searchOwners(query);
+        model.addAttribute("owners", owners);
+        return "owners";
     }
 }
